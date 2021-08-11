@@ -2,12 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 // import App from "./App";
-import { FirstPage } from "./ui/pages/sample";
+import { FirstPage } from "./ui/pages/Sample";
+import { Counter } from "./ui/pages/Counter";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <FirstPage />
+    <Counter />
   </React.StrictMode>,
   document.getElementById("root")
 );
