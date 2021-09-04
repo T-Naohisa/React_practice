@@ -1,7 +1,13 @@
-import React, { createContext, useEffect, useReducer, useState } from "react";
-import { Action } from "redux";
+import React, {
+  createContext,
+  useEffect,
+  useReducer,
+  useState,
+  useCallback,
+} from "react";
 import { ContextA } from "./ContextA";
-
+import { Button } from "./Button";
+import { Count } from "./useCallbackCounter";
 export const UserContext = createContext<string | undefined>("");
 
 //useReducer
@@ -22,6 +28,21 @@ export const Counter = () => {
   const [count, setCounter] = useState<number>(0);
 
   const [stateCount, dispatch] = useReducer(reducerFunc, initialState);
+
+  //useCallback
+  const [firstCountState, setFirstCountState] = useState(0);
+  const [secondCountState, setSecondCountState] = useState(10);
+
+  //+1ボタン useCallbackを使用することでsetFirstCountStateが変更されたときのみ再レンダリングする
+  const incrementFirstCounter = useCallback(
+    () => setFirstCountState((c) => c + 1),
+    [setFirstCountState]
+  );
+  //+10ボタン
+  const incrementSecondCounter = useCallback(
+    () => setSecondCountState((c) => c + 10),
+    [setSecondCountState]
+  );
 
   //useEffect
   useEffect(() => {
@@ -50,6 +71,12 @@ export const Counter = () => {
       </UserContext.Provider>
       <div>stateCount:{stateCount}</div>
       <button onClick={handleClick1}>stateCount+1</button>
+      {/* useCallbackの検証 */}
+      <div>useCallbackの検証</div>
+      <Count text={"+1ボタン"} countState={firstCountState} />
+      <Count text={"+10ボタン"} countState={secondCountState} />
+      <Button handleClick={incrementFirstCounter} value={"+1ボタン"} />
+      <Button handleClick={incrementSecondCounter} value={"+10ボタン"} />
     </div>
   );
 };
