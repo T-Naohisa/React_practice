@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly 1`] = `
+Array [
+  <div
+    className="herader"
+  >
+    Header Compoennt
+  </div>,
+  <div
+    className="firstmain"
+  >
+    <p>
+      初期画面のtop
+    </p>
+    <p>
+      <a
+        href="/currentweather"
+        onClick={[Function]}
+      >
+        currentweather
+      </a>
+    </p>
+    <p>
+      <a
+        href="/forecasteachthreehours"
+        onClick={[Function]}
+      >
+        forecasteachthreehours
+      </a>
+    </p>
+  </div>,
+  <div
+    className="footer"
+  >
+    Footer Compoennt
+  </div>,
+]
+`;

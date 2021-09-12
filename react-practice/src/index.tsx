@@ -1,14 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-// import App from "./App";
-import { FirstPage } from "./ui/pages/Sample";
-import { Counter } from "./ui/pages/Counter";
+import { WeatherAppRouter } from "./route/route";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Counter />
+    <WeatherAppRouter />
   </React.StrictMode>,
   document.getElementById("root")
 );
