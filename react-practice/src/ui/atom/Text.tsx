@@ -1,15 +1,23 @@
 import React from "react";
 
+import TextField from "@material-ui/core/TextField";
 /**
  * TextComponent
  */
 
-export const Text = () => {
+export const TextWapper = () => {
   return (
-    <div className="text">
-      <input type="text" size={10}>
-        button
-      </input>
-    </div>
+    <>
+      <div className="textwapper">
+        <TextField
+          label="cityname"
+          variant="outlined"
+          placeholder="とうきょう"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        ></TextField>
+      </div>
+    </>
   );
 };

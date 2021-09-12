@@ -9,7 +9,7 @@ export const FieldComponent = () => {
   return (
     <>
       <div className="firstmain">
-        <p>初期画面のtop</p>
+        <p className="firstText">初期画面のtop</p>
         <p>
           <Link to="/currentweather">currentweather</Link>
         </p>

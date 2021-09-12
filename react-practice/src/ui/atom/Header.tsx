@@ -5,5 +5,5 @@ import React from "react";
  */
 
 export const Header = () => {
-  return <div className="herader">Header Compoennt</div>;
+  return <div className="header">Header Compoennt</div>;
 };
