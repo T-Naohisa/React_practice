@@ -1,11 +1,19 @@
-import React from "react";
+import React, { SetStateAction, Dispatch } from "react";
 
 import TextField from "@material-ui/core/TextField";
 /**
  * TextComponent
  */
 
-export const TextWapper = () => {
+export interface TextWapperInterface {
+  setCityName: Dispatch<SetStateAction<string>>;
+}
+export const TextWapper = (props: TextWapperInterface) => {
+  //入力値をFieldで管理する
+  const onChangeEvent = (target: string) => {
+    props.setCityName(target);
+  };
+
   return (
     <>
       <div className="textwapper">
@@ -16,6 +24,7 @@ export const TextWapper = () => {
           InputLabelProps={{
             shrink: true,
           }}
+          onChange={(e) => onChangeEvent(e.target.value)}
         ></TextField>
       </div>
     </>
