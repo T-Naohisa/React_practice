@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
  */
 
 export interface ButtonWapperInterface {
-  name: string;
+  buttonName: string;
   test: string;
   onClick: Function;
 }
@@ -21,7 +21,7 @@ export const ButtonWapper = (props: ButtonWapperInterface) => {
     <>
       <div className="buttonwapper">
         <Button variant="contained" color="primary" onClick={click}>
-          {props.name}
+          {props.buttonName}
         </Button>
       </div>
     </>

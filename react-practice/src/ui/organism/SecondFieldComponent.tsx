@@ -13,6 +13,10 @@ export const SecondFieldComponent = () => {
   //都市名
   const [cityName, setCityName] = useState<string>("");
 
+  const onClick = () => {
+    click(cityName);
+  };
+
   /**
    * propsの書き方
    * XXX ={props.XXX}と一個一個記載していく
@@ -20,9 +24,9 @@ export const SecondFieldComponent = () => {
    *
    */
   const buttonWapperProps: ButtonWapperInterface = {
-    name: "Search",
+    buttonName: "Search",
     test: "test",
-    onClick: click,
+    onClick: onClick,
   };
   const textWapperProps: TextWapperInterface = {
     setCityName: setCityName,

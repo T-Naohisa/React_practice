@@ -6,15 +6,15 @@ import axios from "axios";
  *
  */
 export const click = async (cityName: string) => {
-  console.log("Ok");
-  const result = await getWeatherAPI(cityName);
-  if (result.status === 200) {
-    //正常
-  } else if (result.status === 404) {
-    //認証エラー
-  } else {
-    //エラー
-  }
+  console.log("OK:" + cityName);
+  // const result = await getWeatherAPI(cityName);
+  // if (result.status === 200) {
+  //   //正常
+  // } else if (result.status === 404) {
+  //   //認証エラー
+  // } else {
+  //   //エラー
+  // }
 };
 
 //天気情報を取得する非同期通信部分（仮置き）
