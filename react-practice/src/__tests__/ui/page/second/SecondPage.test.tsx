@@ -1,13 +1,13 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { TopPage } from "ui/page/TopPage";
+import { SecondPage } from "ui/page/second/SecondPage";
 import { BrowserRouter as Router } from "react-router-dom";
 
 it("render correctly", () => {
   const tree = renderer
     .create(
       <Router>
-        <TopPage />
+        <SecondPage />
       </Router>
     )
     .toJSON();

@@ -19,4 +19,10 @@ code {
 
 .footer {
   background-color: blue;
+  /* position: fixed;
+  width: 100%;
+  height: 56px;
+  bottom: 0;
+  text-align: center;
+  z-index: 1000; */
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { TopPage } from "ui/page/TopPage";
-import { SecondPage } from "ui/page/SecondPage";
+import { TopPage } from "ui/page/top/TopPage";
+import { SecondPage } from "ui/page/second/SecondPage";
 import { ThirdPage } from "ui/page/ThirdPage";
 /**
  *
