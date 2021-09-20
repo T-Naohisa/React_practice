@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+
 import store from "store/store";
 import { closeDialog } from "store/dialogState";
 import { setCurrentWeather, Datatype } from "store/currentWeather";
@@ -11,20 +12,21 @@ import { setCurrentWeather, Datatype } from "store/currentWeather";
 export const click = async (cityName: string) => {
   console.log("OK:" + cityName);
   const result: AxiosResponse<Datatype> = await getWeatherAPI(cityName);
+  store.dispatch(closeDialog({ state: false }));
   if (result.status === 200) {
     //正常
-    console.log(result.data);
     //storeに格納する store.dispatch(action)
     store.dispatch(setCurrentWeather(result.data));
-    store.dispatch(closeDialog({ state: false }));
-    //stateの取り方
-    // console.log(
-    //   "state:" + store.getState().currentWather.currenctWeatherData?.name
-    // );
+    return "success";
   } else if (result.status === 404) {
     //認証エラー
+    return "error";
+  } else if (result.status === 401) {
+    //検索結果エラー
+    return "error";
   } else {
     //エラー
+    return "error";
   }
 };
 

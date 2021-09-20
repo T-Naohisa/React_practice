@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useHistory } from "react-router-dom";
 import { ButtonWapper, ButtonWapperInterface } from "ui/atom/Button";
 import { TextWapper, TextWapperInterface } from "ui/atom/Text";
 import { PaperWapper, PaperWapperInterface } from "ui/atom/Paper";
@@ -25,8 +25,12 @@ export const SecondFieldComponent = (props: SecondFieldComponentInterface) => {
   const [cityName, setCityName] = useState<string>("");
 
   const onClick = () => {
-    click(cityName);
+    const result = click(cityName);
     store.dispatch(openDialog({ state: true }));
+  };
+  const history = useHistory();
+  const backButtonOnClick = () => {
+    history.push("/");
   };
 
   /**
@@ -46,7 +50,7 @@ export const SecondFieldComponent = (props: SecondFieldComponentInterface) => {
   const backButtonWapperProps: ButtonWapperInterface = {
     buttonName: "back",
     test: "test",
-    onClick: onClick,
+    onClick: backButtonOnClick,
   };
   const textWapperProps: TextWapperInterface = {
     setCityName: setCityName,
