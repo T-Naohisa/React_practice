@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import store from "store/store";
+import { closeDialog } from "store/dialogState";
 import { setCurrentWeather, Datatype } from "store/currentWeather";
 
 /**
@@ -15,6 +16,7 @@ export const click = async (cityName: string) => {
     console.log(result.data);
     //storeに格納する store.dispatch(action)
     store.dispatch(setCurrentWeather(result.data));
+    store.dispatch(closeDialog({ state: false }));
     //stateの取り方
     // console.log(
     //   "state:" + store.getState().currentWather.currenctWeatherData?.name

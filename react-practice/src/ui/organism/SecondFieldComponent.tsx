@@ -2,18 +2,25 @@ import React, { useState } from "react";
 
 import { ButtonWapper, ButtonWapperInterface } from "ui/atom/Button";
 import { TextWapper, TextWapperInterface } from "ui/atom/Text";
-import { PaperWapper } from "ui/atom/Paper";
+import { PaperWapper, PaperWapperInterface } from "ui/atom/Paper";
 
 import store from "store/store";
+import { currentWeather } from "store/currentWeather";
 import { openDialog } from "store/dialogState";
+
 import { click } from "container/SecondPageContainer";
+
+export interface SecondFieldComponentInterface {
+  currentWeather?: currentWeather;
+}
 
 /**
  * FieldComponent
  */
 
-export const SecondFieldComponent = () => {
+export const SecondFieldComponent = (props: SecondFieldComponentInterface) => {
   console.log("render Field");
+
   //都市名
   const [cityName, setCityName] = useState<string>("");
 
@@ -44,13 +51,16 @@ export const SecondFieldComponent = () => {
   const textWapperProps: TextWapperInterface = {
     setCityName: setCityName,
   };
+  const PaperWapperProps: PaperWapperInterface = {
+    currentWeather: props.currentWeather,
+  };
 
   return (
     <>
       <div className="secondmain">
         <TextWapper {...textWapperProps} />
         <ButtonWapper {...buttonWapperProps} />
-        <PaperWapper />
+        <PaperWapper {...PaperWapperProps} />
         <ButtonWapper {...backButtonWapperProps} />
         <p></p>
       </div>

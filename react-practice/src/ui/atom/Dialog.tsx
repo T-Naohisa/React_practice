@@ -6,10 +6,15 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import store from "store/store";
-import { closeDialog } from "store/dialogState";
+import { closeDialog, DialogState } from "store/dialogState";
 
-export const DialogWapper = () => {
-  const [open, setOpen] = React.useState(false);
+export interface DialogWapperInterface {
+  dialogState: DialogState;
+}
+
+export const DialogWapper = (props: DialogWapperInterface) => {
+  const open = props.dialogState.dialogState.state;
+  // const [open, setOpen] = React.useState(props.dialogState);
 
   const handleClickOpen = () => {
     store.dispatch(closeDialog({ state: false }));
