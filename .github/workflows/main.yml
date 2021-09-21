@@ -20,4 +20,5 @@ jobs:
       - name: install npm
         run: npm install
       - name: Run test
+        working-directory: ./react-practice
         run: npm test
