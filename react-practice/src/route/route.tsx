@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { TopPage } from "ui/page/top/TopPage";
 import { SecondPage } from "ui/page/second/SecondPage";
-import { ThirdPage } from "ui/page/ThirdPage";
+import { ThirdPage } from "ui/page/third/ThirdPage";
 
 /**
  *

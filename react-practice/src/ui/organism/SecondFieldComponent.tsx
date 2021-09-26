@@ -25,7 +25,7 @@ export const SecondFieldComponent = (props: SecondFieldComponentInterface) => {
   const [cityName, setCityName] = useState<string>("");
 
   const onClick = () => {
-    const result = click(cityName);
+    click(cityName);
     store.dispatch(openDialog({ state: true }));
   };
   const history = useHistory();

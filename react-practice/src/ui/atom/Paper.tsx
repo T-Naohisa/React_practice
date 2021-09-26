@@ -38,6 +38,17 @@ export const PaperWapper = (props: PaperWapperInterface) => {
                   気温:{props.currentWeather?.currenctWeatherData?.main.temp}
                 </p>
                 <p>
+                  {props.currentWeather?.currenctWeatherData?.weather[0]
+                    .icon !== undefined && (
+                    <img
+                      src={`${process.env.REACT_APP_WEATHER_ICON_API_URL}${props.currentWeather?.currenctWeatherData?.weather[0].icon}.png`}
+                      alt=""
+                      width="50"
+                      height="50"
+                    ></img>
+                  )}
+                </p>
+                <p>
                   体感気温:
                   {props.currentWeather?.currenctWeatherData?.main.feels_like}
                 </p>
