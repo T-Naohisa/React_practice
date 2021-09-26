@@ -2,7 +2,10 @@ import axios, { AxiosResponse } from "axios";
 
 import store from "store/store";
 import { closeDialog } from "store/dialogState";
-import { setCurrentWeather, Datatype } from "store/currentWeather";
+import {
+  setThreeHourForecast,
+  threeHourDatatype,
+} from "store/threeHourForecast";
 
 /**
  * 検索ボタン押下時の処理
@@ -12,12 +15,14 @@ import { setCurrentWeather, Datatype } from "store/currentWeather";
 export const click = async (cityName: string) => {
   try {
     console.log("OK:" + cityName);
-    const result: AxiosResponse<Datatype> = await getWeatherAPI(cityName);
+    const result: AxiosResponse<threeHourDatatype> = await getThreeHourAPI(
+      cityName
+    );
     // store.dispatch(closeDialog({ state: false }));
     if (result.status === 200) {
       //正常
       //storeに格納する store.dispatch(action)
-      store.dispatch(setCurrentWeather(result.data));
+      store.dispatch(setThreeHourForecast(result.data));
     }
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -33,14 +38,14 @@ export const click = async (cityName: string) => {
 };
 
 //天気情報を取得する非同期通信部分（仮置き）
-export const getWeatherAPI = async (cityName: string) => {
-  const url = process.env.REACT_APP_WEATHER_API_URL!;
+export const getThreeHourAPI = async (cityName: string) => {
+  const url = process.env.REACT_APP_THREE_HOUR_FORECAST_DATA_API_URL!;
   const params = {
     q: cityName,
     appid: process.env.REACT_APP_WEATHER_API_KEY!,
   };
 
-  const response: AxiosResponse<Datatype> = await axios.get(url, {
+  const response: AxiosResponse<threeHourDatatype> = await axios.get(url, {
     params,
   });
   console.log(`レスポンスステータス：${response.status}`);

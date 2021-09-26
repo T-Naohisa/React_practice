@@ -7,6 +7,12 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
+import { threeHourForecast, threeHourListData } from "store/threeHourForecast";
+
+export interface tableWapperInterface {
+  threeHourForecast?: threeHourForecast;
+}
+
 function createData(
   name: string,
   calories: number,
@@ -25,7 +31,15 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-export const DenseTable = () => {
+export const TableWapper = (props: tableWapperInterface) => {
+  const list = props.threeHourForecast?.threeHourForecastData?.list;
+  const createRowData = () => {
+    return (
+      <>
+        <div>test</div>
+      </>
+    );
+  };
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
