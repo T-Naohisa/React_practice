@@ -33,15 +33,26 @@ const rows = [
 
 export const TableWapper = (props: tableWapperInterface) => {
   const list = props.threeHourForecast?.threeHourForecastData?.list;
-  const createRowData = () => {
-    return (
-      <>
-        <div>test</div>
-      </>
-    );
+  const createRowData = (list: threeHourListData[] | undefined) => {
+    const itemList =
+      list &&
+      list.map((item) => {
+        return <div>{item.dt}</div>;
+      });
+    return <>{itemList}</>;
   };
   return (
     <TableContainer component={Paper}>
+      {createRowData(list)}
+      {/* {list &&
+        list.map((item) => {
+          return (
+            <>
+              <div>test</div>
+              <div>{item.dt}</div>
+            </>
+          );
+        })} */}
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow
