@@ -9,6 +9,11 @@ import Paper from "@mui/material/Paper";
 
 import { threeHourForecast, threeHourListData } from "store/threeHourForecast";
 
+import {
+  convertTimeFromUnix,
+  convertCelsiusFromKelvin,
+} from "container/ThridPageContainer";
+
 export interface tableWapperInterface {
   threeHourForecast?: threeHourForecast;
 }
@@ -23,36 +28,54 @@ function createData(
   return { name, calories, fat, carbs, protein };
 }
 
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
-
 export const TableWapper = (props: tableWapperInterface) => {
   const list = props.threeHourForecast?.threeHourForecastData?.list;
-  const createRowData = (list: threeHourListData[] | undefined) => {
+
+  const createRowDataSample = (list: threeHourListData[] | undefined) => {
     const itemList =
       list &&
-      list.map((item) => {
-        return <div>{item.dt}</div>;
+      list.map((item, index) => {
+        return <div key={index}>{item.dt}</div>;
       });
     return <>{itemList}</>;
   };
+
+  //リスト表示
+  const createRowData = (list: threeHourListData[] | undefined) => {
+    const itemlist =
+      list &&
+      list.map((item, index) => {
+        return (
+          <>
+            <TableRow
+              key={index}
+              onClick={() => {
+                console.log("click");
+              }}
+            >
+              <TableCell component="th" scope="row">
+                {convertTimeFromUnix(item.dt)}
+              </TableCell>
+              <TableCell align="right">
+                <img
+                  src={`${process.env.REACT_APP_WEATHER_ICON_API_URL}${item.weather[0].icon}.png`}
+                  alt=""
+                  width="50"
+                  height="50"
+                ></img>
+              </TableCell>
+              <TableCell align="right">
+                {convertCelsiusFromKelvin(item.main.temp)}
+              </TableCell>
+            </TableRow>
+          </>
+        );
+      });
+    return <>{itemlist}</>;
+  };
+
   return (
     <TableContainer component={Paper}>
-      {createRowData(list)}
-      {/* {list &&
-        list.map((item) => {
-          return (
-            <>
-              <div>test</div>
-              <div>{item.dt}</div>
-            </>
-          );
-        })} */}
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow
@@ -61,26 +84,11 @@ export const TableWapper = (props: tableWapperInterface) => {
             }}
           >
             <TableCell>日付</TableCell>
-            <TableCell align="left">時間</TableCell>
             <TableCell align="right">天気</TableCell>
             <TableCell align="right">気温</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="left">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+        <TableBody>{createRowData(list)}</TableBody>
       </Table>
     </TableContainer>
   );

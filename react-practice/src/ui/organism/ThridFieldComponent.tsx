@@ -33,7 +33,6 @@ export const ThirdFieldComponent = (props: ThirdFieldComponentinterface) => {
 
   return (
     <>
-      <div>ThirdFieldComponentdummy</div>
       <div className="thridmain">
         <TextWapper {...textWapperProps} />
         <ButtonWapper {...buttonWapperProps} />
