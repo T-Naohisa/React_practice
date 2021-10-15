@@ -1,6 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { SecondTemplate, SecondPageInterface } from "ui/template/SecondPage";
+import {
+  SecondTemplate,
+  SecondPageInterface,
+} from "ui/template/SecondTemplate";
 
 import { currentWeatherSelector, dialogStateSelector } from "selector/selector";
 

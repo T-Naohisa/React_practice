@@ -1,15 +1,12 @@
-import axios from "axios";
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 import { click, getWeatherAPI } from "container/SecondPageContainer";
 
-/**
- * とりあえず書いてるけど
- * 微妙だからちゃんとした書き方調べる
- */
+//axiosをモックする
 jest.mock("axios");
+const myAxios: jest.Mocked<AxiosInstance> = axios as any;
+
 describe("getWeatherAPI function test", () => {
-  //test前の前処理
-  beforeEach(() => {});
-  test("click function test 正常", async () => {
+  test("getWeatherAPIの正常系", async () => {
     const result = { status: 200, data: { name: "さいたま" } };
     (axios.get as any).mockResolvedValue(result);
     const getResult = await getWeatherAPI("test");
@@ -18,23 +15,11 @@ describe("getWeatherAPI function test", () => {
   });
 });
 
-describe("click function test", () => {
-  test("正常系", async () => {
+describe("click関数のテスト", () => {
+  test("click関数が正常に動作しstatusが200であること", async () => {
     const result = { status: 200, data: { name: "さいたま" } };
     (axios.get as any).mockResolvedValue(result);
     await click("test");
     expect(result.status).toBe(200);
-  });
-  test("異常系", async () => {
-    const result = { status: 404 };
-    (axios.get as any).mockResolvedValue(result);
-    await click("test");
-    expect(result.status).toBe(404);
-  });
-  test("異常系 その他", async () => {
-    const result = { status: 401 };
-    (axios.get as any).mockResolvedValue(result);
-    await click("test");
-    expect(result.status).toBe(401);
   });
 });

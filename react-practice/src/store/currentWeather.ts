@@ -54,7 +54,7 @@ export const currentWatherSlice = createSlice({
   initialState,
   reducers: {
     setCurrentWeather: (
-      state: currentWeather,
+      state = initialState,
       action: PayloadAction<Datatype>
     ) => ({
       ...state,

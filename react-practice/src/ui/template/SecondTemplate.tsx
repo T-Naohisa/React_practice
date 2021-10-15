@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Header } from "ui/atom/Header";
 import { Footer } from "ui/atom/Footer";
 import {

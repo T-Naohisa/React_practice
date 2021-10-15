@@ -1,4 +1,7 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { store } from "store/store";
+
 import renderer from "react-test-renderer";
 import { SecondPage } from "ui/page/second/SecondPage";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -6,9 +9,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 it("render correctly", () => {
   const tree = renderer
     .create(
-      <Router>
-        <SecondPage />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <SecondPage />
+        </Router>
+      </Provider>
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
