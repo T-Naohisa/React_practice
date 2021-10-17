@@ -39,5 +39,27 @@ useCallbackと同じくメモ化するhook
 reduxの分割
 Providerを切り離してchildrenで画面コンポーネントを受け渡す形にしてみる
 
+--------------------------
+コンポーネントテストについて
+
+
+使えるライブラリは2種類
+enzyme
+コードに対するunitテスト
+https://enzymejs.github.io/enzyme/
+
+
+react tsting library
+実際にユーザーが使うステップに沿ってテストを行う
+リファレンス　https://testing-library.com/docs/react-testing-library/intro
+
+コンポーネントの表示はrenderする（画面を表示）
+fireEventでボタンの押下などの操作を行う
+
+
+
+
+
+
 
 

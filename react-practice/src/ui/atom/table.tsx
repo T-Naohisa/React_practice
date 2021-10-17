@@ -18,27 +18,8 @@ export interface tableWapperInterface {
   threeHourForecast?: threeHourForecast;
 }
 
-function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number
-) {
-  return { name, calories, fat, carbs, protein };
-}
-
 export const TableWapper = (props: tableWapperInterface) => {
   const list = props.threeHourForecast?.threeHourForecastData?.list;
-
-  const createRowDataSample = (list: threeHourListData[] | undefined) => {
-    const itemList =
-      list &&
-      list.map((item, index) => {
-        return <div key={index}>{item.dt}</div>;
-      });
-    return <>{itemList}</>;
-  };
 
   //リスト表示
   const createRowData = (list: threeHourListData[] | undefined) => {

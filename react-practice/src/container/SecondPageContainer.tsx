@@ -1,9 +1,8 @@
-import axios, { AxiosError, AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 
 import store from "store/store";
 import { closeDialog } from "store/dialogState";
 import { setCurrentWeather, Datatype } from "store/currentWeather";
-import { errorMonitor } from "stream";
 
 /**
  * 検索ボタン押下時の処理
