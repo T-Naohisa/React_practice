@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { shallow, mount, configure } from "enzyme";
+import { mount, configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { BrowserRouter as Router } from "react-router-dom";
 import { TopPage } from "ui/page/top/TopPage";
