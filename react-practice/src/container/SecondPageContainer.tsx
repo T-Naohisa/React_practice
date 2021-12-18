@@ -10,7 +10,6 @@ import { setCurrentWeather, Datatype } from "store/currentWeather";
  *
  */
 export const click = async (cityName: string) => {
-  // try {
   await getWeatherAPI(cityName)
     .then((res) => {
       store.dispatch(setCurrentWeather(res.data));
@@ -20,29 +19,13 @@ export const click = async (cityName: string) => {
         console.log("bad request");
       } else if (e.response.status === 404) {
         console.log("認証エラー");
+      } else {
+        console.log("その他");
       }
     })
     .finally(() => {
       store.dispatch(closeDialog({ state: false }));
     });
-  //   const result: AxiosResponse<Datatype> = await getWeatherAPI(cityName);
-  //   if (result.status === 200) {
-  //     //正常
-  //     //storeに格納する store.dispatch(action)
-  //     store.dispatch(setCurrentWeather(result.data));
-  //   }
-  // } catch (error) {
-  //   if (axios.isAxiosError(error)) {
-  //     if (error.response?.status === 400) {
-  //       console.log("bad request");
-  //     } else if (error.response?.status === 404) {
-  //       console.log("認証エラー");
-  //     }
-  //   }
-  // } finally {
-  //   store.dispatch(closeDialog({ state: false }));
-  // }
-  console.log("OK");
 };
 
 //天気情報を取得する非同期通信部分（仮置き）
