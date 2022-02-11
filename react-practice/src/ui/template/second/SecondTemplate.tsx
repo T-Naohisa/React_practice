@@ -26,7 +26,6 @@ export const SecondTemplate = (props: SecondPageInterface) => {
   return (
     <>
       <Header />
-      <p>templatedummy</p>
       <SecondFieldComponent {...organismProps}></SecondFieldComponent>
       <DialogWapper {...DialogWapperProps}></DialogWapper>
       <Footer />

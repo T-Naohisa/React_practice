@@ -12,14 +12,11 @@ import WbCloudyIcon from "@mui/icons-material/WbCloudy";
 export const Footer = () => {
   return (
     <>
-      <div className="footer">
-        Footer Compoennt
-        <BottomNavigation showLabels>
-          <BottomNavigationAction label="Recents" icon={<HomeIcon />} />
-          <BottomNavigationAction label="Favorites" icon={<RoomIcon />} />
-          <BottomNavigationAction label="Nearby" icon={<WbCloudyIcon />} />
-        </BottomNavigation>
-      </div>
+      <BottomNavigation showLabels>
+        <BottomNavigationAction label="Recents" icon={<HomeIcon />} />
+        <BottomNavigationAction label="Favorites" icon={<RoomIcon />} />
+        <BottomNavigationAction label="Nearby" icon={<WbCloudyIcon />} />
+      </BottomNavigation>
     </>
   );
 };

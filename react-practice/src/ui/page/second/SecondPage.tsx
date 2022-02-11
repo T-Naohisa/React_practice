@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import {
   SecondTemplate,
   SecondPageInterface,
-} from "ui/template/SecondTemplate";
+} from "ui/template/second/SecondTemplate";
 
 import { currentWeatherSelector, dialogStateSelector } from "selector/selector";
 

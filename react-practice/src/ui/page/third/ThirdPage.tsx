@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import {
   ThirdPageTemplate,
   ThirdPageInterface,
-} from "ui/template/ThirdTemplate";
+} from "ui/template/third/ThirdTemplate";
 import { threeHourSelector } from "selector/selector";
 
 export const ThirdPage = () => {

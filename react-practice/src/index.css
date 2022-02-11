@@ -13,10 +13,9 @@ code {
 }
 
 /* 独自css */
-.header {
-  background-color: blue;
+.header-component {
+  margin-bottom: 30px;
 }
-
 .footer {
   background-color: blue;
   /* position: fixed;
