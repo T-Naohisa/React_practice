@@ -5,16 +5,17 @@ import { store } from "store/store";
 import renderer from "react-test-renderer";
 import { SecondPage } from "ui/page/second/SecondPage";
 import { BrowserRouter as Router } from "react-router-dom";
-
-it("render correctly", () => {
-  const tree = renderer
-    .create(
-      <Provider store={store}>
-        <Router>
-          <SecondPage />
-        </Router>
-      </Provider>
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+describe("snapshot", () => {
+  it("render correctly", () => {
+    const tree = renderer
+      .create(
+        <Provider store={store}>
+          <Router>
+            <SecondPage />
+          </Router>
+        </Provider>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
