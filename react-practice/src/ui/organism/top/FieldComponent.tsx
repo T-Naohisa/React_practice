@@ -17,6 +17,12 @@ const forecasteachthreehours: LCInterfalce = {
   LinkText: "forecasteachthreehours",
 };
 
+// 4ページのリンク情報
+const fourformik: LCInterfalce = {
+  LinkDestination: "/fourformik",
+  LinkText: "fourformik",
+};
+
 /**
  * FieldComponent
  */
@@ -32,6 +38,7 @@ export const FieldComponent = () => {
       <p className="topPageText">練習用の画面作成</p>
       <LinkComponent {...currentweather} />
       <LinkComponent {...forecasteachthreehours} />
+      <LinkComponent {...fourformik} />
       <Button variant="contained" onClick={onclick}>
         Contained
       </Button>

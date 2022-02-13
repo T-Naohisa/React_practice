@@ -1,9 +1,9 @@
 import React from "react";
 import { Header } from "ui/atom/Header";
 import { Footer } from "ui/atom/Footer";
-import { ThirdFieldComponent } from "ui/organism/ThridFieldComponent";
+import { ThirdFieldComponent } from "ui/organism/third/ThridFieldComponent";
 import { threeHourForecast } from "store/threeHourForecast";
-import { ThirdFieldComponentinterface } from "ui/organism/ThridFieldComponent";
+import { ThirdFieldComponentinterface } from "ui/organism/third/ThridFieldComponent";
 
 export interface ThirdPageInterface {
   threeHourForecast?: threeHourForecast;

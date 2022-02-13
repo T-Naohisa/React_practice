@@ -2,7 +2,7 @@ import React from "react";
 import Enzyme, { shallow, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
-import { FieldComponent } from "ui/organism/FieldComponent";
+import { FieldComponent } from "ui/organism/top/FieldComponent";
 import { BrowserRouter as Router } from "react-router-dom";
 
 Enzyme.configure({ adapter: new Adapter() });

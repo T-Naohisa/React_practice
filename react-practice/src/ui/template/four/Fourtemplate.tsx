@@ -1,16 +1,13 @@
 import React from "react";
 import { Header } from "ui/atom/Header";
 import { Footer } from "ui/atom/Footer";
-import { FieldComponent } from "ui/organism/top/FieldComponent";
-/**
- * TopPageTemplate
- */
-
-export const TopPageTemplate = () => {
+import { FormikComponent, SampleForm } from "ui/organism/four/FormikComponent";
+export const Fourtemplate = () => {
   return (
     <>
       <Header />
-      <FieldComponent />
+      <div>FourPage</div>
+      <SampleForm />
       <Footer />
     </>
   );

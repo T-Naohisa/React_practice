@@ -4,7 +4,7 @@ import { Footer } from "ui/atom/Footer";
 import {
   SecondFieldComponent,
   SecondFieldComponentInterface,
-} from "ui/organism/SecondFieldComponent";
+} from "ui/organism/second/SecondFieldComponent";
 import { DialogWapper, DialogWapperInterface } from "ui/atom/Dialog";
 
 import { currentWeather } from "store/currentWeather";
