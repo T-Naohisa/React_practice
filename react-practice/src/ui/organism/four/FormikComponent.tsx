@@ -63,11 +63,9 @@ export const SampleForm = withFormik({
 
     if (!values.name) {
       errors.name = "Required";
-      console.log("NG");
     }
     if (!values.pokemon) {
       errors.pokemon = "Required-pokemon";
-      console.log("NG-pokemon");
     }
     return errors;
   },
