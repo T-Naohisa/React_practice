@@ -10,10 +10,9 @@ on:
 jobs:
   test: #jobname
     runs-on: ubuntu-latest
-
     steps:
       - name: chekout
-      - uses: actions/checkout@v2 #ソースコードをチェックアウト
+        uses: actions/checkout@v2 #ソースコードをチェックアウト
     steps:
       - name: install Node
         uses: actions/setup-node@v2
