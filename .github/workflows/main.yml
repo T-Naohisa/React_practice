@@ -3,23 +3,27 @@ name: CI_test_jest
 
 # タイミングを指定
 on:
-  push:
-    branches: [develop]
+  push: # pushしたとき
+    branches:
+      - develop
 
 jobs:
-  test:
+  test: #jobname
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-
+      - name: chekout
+      - uses: actions/checkout@v2 #ソースコードをチェックアウト
+    steps:
       - name: install Node
         uses: actions/setup-node@v2
         with:
           node-version: "10.16.1"
+    steps:
       - name: install npm
         working-directory: ./react-practice
         run: npm install
+    steps:
       - name: Run test
         working-directory: ./react-practice
         run: npm test
