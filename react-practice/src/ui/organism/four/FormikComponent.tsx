@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import { withFormik, FormikProps } from "formik";
 import { PokemonRadioForm } from "ui/organism/four/PokemonRadioForm";
 import { ThreeFamiliesRadioForm } from "ui/organism/four/ThreeFamiliesRadioForm";
@@ -15,6 +15,29 @@ export const FormikComponent = (props: FormikProps<FormValues>) => {
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
     props;
 
+  // const pokemonChecker = () => {
+  //   console.log("check");
+  //   if (values.pokemon === "diamond") return true;
+  //   return false;
+  // };
+  const callback = useCallback(() => {
+    console.log("check:render");
+    console.log(values.pokemon);
+    if (values.pokemon === "diamond") return true;
+    return false;
+  }, [values.pokemon]);
+
+  const memo = useMemo(() => {
+    return (
+      <>
+        <PokemonRadioForm
+          setFieldValue={props.setFieldValue}
+          setValue={values.pokemon}
+        />
+      </>
+    );
+  }, [props.setFieldValue, values.pokemon]);
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -28,15 +51,15 @@ export const FormikComponent = (props: FormikProps<FormValues>) => {
         {errors.name !== "" && touched.name && (
           <div id="feedback">{errors.name}</div>
         )}
-        <PokemonRadioForm
+        {memo}
+        {/* <PokemonRadioForm
           setFieldValue={props.setFieldValue}
           setValue={values.pokemon}
-        />
+        /> */}
         {errors.pokemon !== "" && touched.pokemon && (
           <div id="feedback">{errors.pokemon}</div>
         )}
-
-        {values.pokemon === "diamond" && (
+        {callback() && (
           <ThreeFamiliesRadioForm
             setFieldValue={props.setFieldValue}
             setValue={values.ThreeFamilies}

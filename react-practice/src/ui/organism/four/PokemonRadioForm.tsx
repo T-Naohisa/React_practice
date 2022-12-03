@@ -11,6 +11,7 @@ export interface GRInterface {
 
 export const PokemonRadioForm = (props: GRInterface) => {
   const { setFieldValue, setValue } = props;
+  console.log("render:diamond");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFieldValue("pokemon", event.target.value);

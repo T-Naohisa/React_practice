@@ -1,8 +1,8 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from 'axios';
 
-import store from "store/store";
-import { closeDialog } from "store/dialogState";
-import { setCurrentWeather, Datatype } from "store/currentWeather";
+import store from 'store/store';
+import { closeDialog } from 'store/dialogState';
+import { setCurrentWeather, Datatype } from 'store/currentWeather';
 
 /**
  * 検索ボタン押下時の処理
@@ -13,14 +13,15 @@ export const click = async (cityName: string) => {
   await getWeatherAPI(cityName)
     .then((res) => {
       store.dispatch(setCurrentWeather(res.data));
+      return res;
     })
     .catch((e) => {
       if (e.response.status === 400) {
-        console.log("bad request");
+        console.log('bad request');
       } else if (e.response.status === 404) {
-        console.log("認証エラー");
+        console.log('認証エラー');
       } else {
-        console.log("その他");
+        console.log('その他');
       }
     })
     .finally(() => {
